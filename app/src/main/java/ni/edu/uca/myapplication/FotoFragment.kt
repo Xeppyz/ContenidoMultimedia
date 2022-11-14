@@ -12,13 +12,10 @@ import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import ni.edu.uca.myapplication.databinding.FragmentFotoBinding
 
 class FotoFragment : Fragment() {
-    val pickMedia =registerForActivityResult(ActivityResultContracts.PickVisualMedia()){uri->
-        if(uri!=null){
-binding.imgFoto.setImageURI(uri)
-        }else {
-
+    val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null) {
+            binding.imgFoto.setImageURI(uri)
         }
-
     }
 
     private lateinit var binding: FragmentFotoBinding
@@ -39,9 +36,9 @@ binding.imgFoto.setImageURI(uri)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-binding.button.setOnClickListener {
-pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-}
+        binding.button.setOnClickListener {
+            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+        }
 
     }
 

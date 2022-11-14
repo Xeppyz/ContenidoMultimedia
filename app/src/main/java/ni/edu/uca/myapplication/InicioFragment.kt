@@ -34,6 +34,13 @@ private lateinit var binding: FragmentInicioBinding
 
             it.findNavController().navigate(R.id.action_inicioFragment_to_fotoFragment)
         }
+
+        binding.btnVideo.setOnClickListener {
+
+            it.findNavController().navigate(R.id.action_inicioFragment_to_videoFragment)
+        }
+
+
     }
 
 

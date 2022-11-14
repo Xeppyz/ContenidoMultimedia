@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_inicioFragment_to_fotoFragment"
             app:destination="@id/fotoFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
     </fragment>
     <fragment
         android:id="@+id/fotoFragment"
         android:name="ni.edu.uca.myapplication.FotoFragment"
         android:label="fragment_foto"
         tools:layout="@layout/fragment_foto" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="ni.edu.uca.myapplication.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
 </navigation>
