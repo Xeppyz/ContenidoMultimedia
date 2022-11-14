@@ -1,14 +1,19 @@
 package ni.edu.uca.myapplication
 
+import android.Manifest
 import android.app.Activity
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia.*
+import androidx.core.content.ContextCompat
 import ni.edu.uca.myapplication.databinding.FragmentFotoBinding
 
 class FotoFragment : Fragment() {
@@ -37,10 +42,43 @@ class FotoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener {
-            pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            inicioFoto()
+        }
+
+
+    }
+    private fun inicioFoto(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            when{
+                ContextCompat.checkSelfPermission(
+                    binding.button.context, Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED->{
+                    lanzarFoto()
+                }
+                   else -> requestPermissionLaucher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }else{
+            lanzarFoto()
+
+        }
+
+
+    }
+    private val requestPermissionLaucher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ){isGranted ->
+        if (isGranted){
+            lanzarFoto()
+        }else{
+            Toast.makeText(context, "HABILITAA LA MIERDA", Toast.LENGTH_SHORT).show()
         }
 
     }
+
+    private fun lanzarFoto(){
+        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
 
 
 }
