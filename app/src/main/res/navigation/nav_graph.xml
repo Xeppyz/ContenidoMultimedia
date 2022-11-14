@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="ni.edu.uca.myapplication.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_fotoFragment"
+            app:destination="@id/fotoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fotoFragment"
+        android:name="ni.edu.uca.myapplication.FotoFragment"
+        android:label="fragment_foto"
+        tools:layout="@layout/fragment_foto" />
+</navigation>
