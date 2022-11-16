@@ -2,6 +2,7 @@ package ni.edu.uca.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -145,8 +146,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("DefaultLocale")
     public static String convertToMMSS(String duration){
-        Long millis = Long.parseLong(duration);
+        long millis = Long.parseLong(duration);
         return String.format("%02d:%02d",
                 TimeUnit.MILLISECONDS.toMinutes(millis) % TimeUnit.HOURS.toMinutes(1),
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));

@@ -1,5 +1,6 @@
 package ni.edu.uca.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,6 +40,12 @@ private lateinit var binding: FragmentInicioBinding
 
             it.findNavController().navigate(R.id.action_inicioFragment_to_videoFragment)
         }
+
+        binding.btnAudio.setOnClickListener {
+            val intent = Intent(activity, Audio::class.java)
+            startActivity(intent)
+        }
+
     }
 
 
