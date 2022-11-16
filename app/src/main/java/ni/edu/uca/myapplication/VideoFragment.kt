@@ -97,18 +97,17 @@ inicioVideo()
         }else{
             Toast.makeText(context, "Habilitar los permisos", Toast.LENGTH_SHORT).show()
         }
-
     }
     @SuppressLint("SuspiciousIndentation")
     @Suppress("DEPRECATION")
 ///////////////////////////////////////////
 
 
-        private fun agarrarVideo(){
+    private fun agarrarVideo(){
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "video/*"
 
-            startActivityForResult(intent, 200)
-        }
+        startActivityForResult(intent, 200)
+    }
 }
