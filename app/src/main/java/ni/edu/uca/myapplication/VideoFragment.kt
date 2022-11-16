@@ -1,6 +1,7 @@
 package ni.edu.uca.myapplication
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -34,7 +35,10 @@ class VideoFragment : Fragment() {
     }
 
     @Suppress("DEPRECATION")
+/*
 
+
+ */
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -91,10 +95,13 @@ inicioVideo()
         if (isGranted){
             inicioVideo()
         }else{
-            Toast.makeText(context, "HABILITAA LA MIERDA", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Habilitar los permisos", Toast.LENGTH_SHORT).show()
         }
 
     }
+    @SuppressLint("SuspiciousIndentation")
+    @Suppress("DEPRECATION")
+///////////////////////////////////////////
 
 
         private fun agarrarVideo(){
@@ -102,6 +109,6 @@ inicioVideo()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "video/*"
 
-        startActivityForResult(intent, 200)
-    }
+            startActivityForResult(intent, 200)
+        }
 }

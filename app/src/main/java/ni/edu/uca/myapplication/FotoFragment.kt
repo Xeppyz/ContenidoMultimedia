@@ -70,7 +70,7 @@ class FotoFragment : Fragment() {
         if (isGranted){
             lanzarFoto()
         }else{
-            Toast.makeText(context, "HABILITAA LA MIERDA", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Habilitar los permisos", Toast.LENGTH_SHORT).show()
         }
 
     }
